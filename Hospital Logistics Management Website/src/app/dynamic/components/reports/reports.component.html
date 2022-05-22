@@ -1,0 +1,281 @@
+<div class="wrapper ">
+    <app-navigation [current]="'reports'"></app-navigation>
+    <div class="main-panel">
+     <app-header [current]="'Reports'"></app-header>
+     
+     <div class="content">
+        <div class="container-fluid">
+        <div class="row" style="margin-bottom: 20px;">
+                <div class="col-md-12">
+                        <div class="row">
+                                <div class="col-md-5">
+                                        <div class="form-group">
+                                        <label class="bmd-label-floating">From</label>
+                                        <input type="date" class="form-control" [(ngModel)]="from" [ngModelOptions]="{standalone: true}">
+                                        </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">To</label>
+                                        <input type="date" class="form-control" [(ngModel)]="to" [ngModelOptions]="{standalone: true}">
+                                      </div>
+                                </div>
+                                <div class="col-md-2">
+                                        <button type="submit" class="btn btn-primary pull-right" style="margin: 0;
+           margin-right: 12px;" (click)="getData()">Get Reports</button>
+                                    </div>
+                              </div>
+                </div>
+        </div>
+          <div class="row">
+            <div class="col-md-12">
+              <p *ngIf="!reports.length" style="text-align: center;
+              background: #ca030d66;
+              padding: 15px 100px;
+              width: fit-content;
+              margin: auto;
+              border-radius: 25px;
+              color: #5f0e6d;">No drivers added for reports!</p>
+              <div class="card" *ngIf="reports.length">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Reports</h4>
+                  <p class="card-category"> Get driverwise reports</p>
+                  <button (click)="downnloadcsv()" style="position: absolute;
+                  right: 20px;
+                  top: 17px;
+                  background: #fff;
+                  border: none;
+                  border-radius: 25px;
+                  padding: 10px 25px;
+                  color: #932cae;
+                  cursor: pointer;">Download CSV</button>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>
+                          Driver Name
+                        </th>
+                        <th>
+                          Driver Contact
+                        </th>
+                        <th>
+                          Total Distance Covered (Km)
+                        </th>
+                        <th>
+                          Total Time Taken
+                        </th>
+                        <th>
+                          Total Online Time
+                        </th>
+                        <th style="text-align: end">
+                          Actions
+                        </th>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let rep of reports">
+                          <td>
+                            {{ rep.dname }}
+                          </td>
+                          <td>
+                            <a *ngIf="rep.dphone" [href]="sanitize(rep.demail)">{{ rep.demail }}</a><br>
+                            <a *ngIf="rep.dphone" href="tel:{{ rep.dphone }}">{{ rep.dphone }}</a>
+                          </td>
+                          <td>
+                              {{ rep.total_distance }} Kms
+                            </td>
+                            <td>
+                                {{ rep.total_time }}
+                              </td>
+                              <td>
+                                {{ rep.total_work_time }}<br>
+                                <p (click)="log_holder = rep.total_work_time_log;log_timings.open()" style="margin: 0;
+                                font-size: 0.8em;
+                                color: #ca030d;
+                                font-weight: 400;
+                                cursor: pointer;">View All Online Logs</p>
+                              </td>
+                              <td>
+                                <button (click)="clearDrive();getCompletedDrives(rep.aadid);completeddrives.open()" type="submit" class="btn btn-primary pull-right" style="margin: 0;
+                                margin-right: 12px;"> <i class="material-icons" style="margin-right: 4px;">check_circle</i>View All Completed Trips</button>
+                              </td>
+                        </tr>
+                        
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+
+
+
+  <ngx-smart-modal #completeddrives identifier="completeddrives" class="completeddrives">
+        <h1 style="text-align: center;height: 2%;
+        margin-bottom: 20px;">View All Completed Drives</h1>
+        <div style="height: 80%;margin-bottom: 40px;">
+            <div class="col-md-12" style="height: 100%;">
+              <div class="card" style="height: 100%;display: block;
+              padding-bottom: 10px;">
+               
+                <div class="card-body" style="height: 100%;">  
+                
+                              <form style="height: 100%;">
+                                <div class="row" style="height: 100%;padding: 10px 0px;">
+                                    <div class="col-md-7" style="border-right: 1px solid #ca030d;">
+                                        <label style="font-size: 1.2em;
+                                        font-weight: 700;
+                                        margin-top: 10px;">All Completed Drives</label>
+                                         <p *ngIf="!completed_drives.length" class="noresult">No completed drives found.</p>
+                                            <div style="display: flex;
+                                            margin-bottom: 12px;
+                                            background: #fbfbfb;
+                                            padding: 5px 10px;
+                                            border-radius: 12px;
+                                            border: 1px solid #692178;" *ngFor="let drive of completed_drives;let i = index">
+                                              <div class="col-md-9">
+                                                <p style="font-size: 1.1em;margin-top: 16px;
+                                                margin-bottom: 3px;
+                                                font-weight: 500;
+                                                color: #000;">{{ drive.work_log[0]['message'] + ' -> ' + drive.work_log[1]['message'] + ' ...' }}<span *ngIf="drive.total_distance" style="margin-left: 5px;
+                                                color: #ffffff;
+                                                font-weight: 700;
+                                                background: #ca030d;
+                                                font-size: 0.8em;
+                                                padding: 4px 10px;
+                                                border-radius: 25px;
+                                                border: none;">{{ drive.total_distance }}</span></p>
+  
+                                                <div style="display: flex;margin:4px 0px 5px 0px;">
+                                                  <span style="display: flex;margin-top: 5px;"><i class="material-icons" style="font-size: 1.2em;
+                                                    line-height: initial;
+                                                    margin-right: 2px;
+                                                    color: #b17a00;">access_alarm</i><span style="color: #b17900;font-size: 0.9em;
+                                                    font-weight: 500;">{{ getFormatted1(drive.started_at) }} to {{ getFormatted1(drive.ended_at) }}</span></span>
+                                                </div>
+                                                <div *ngIf="drive.status == 'completed'" style="display: flex;margin:8px 0px 5px 0px;">
+                                                  <span style="font-size: 0.9em;
+                                                  font-weight: 500;"><span style="border: 1px dotted #1d88a9;
+                                                  padding: 3px 10px;
+                                                  border-radius: 25px;
+                                                  color: #1988a9;">Drive took</span><span style="color: #2f70a9;">---</span><span style="color: #1a88a9;
+                                                  font-weight: 600;
+                                                  border: 1px dotted #3190ae;
+                                                  padding: 3px 10px;
+                                                  border-radius: 25px;">{{ drive.time_did }}</span></span>
+                                                </div>
+                                                <div *ngIf="drive.status == 'completed'" style="display: flex;margin:10px 0px 5px 0px;">
+                                                  <span style="font-size: 0.9em;
+                                                  font-weight: 500;"><span style="border: 1px dotted #0e9626;
+                                                    padding: 3px 10px;
+                                                    border-radius: 25px;
+                                                    color: #1d8631;">Should be</span><span style="color: #228633;">---</span><span style="color: #238734;
+                                                  border: 1px dotted #278837;
+                                                  padding: 3px 10px;
+                                                  border-radius: 25px;
+                                                  font-weight: 600;">{{ drive.time_should }} (Using optimized route)</span></span>
+                                                </div>
+  
+  
+                                              </div>
+                                              <div class="col-md-3">
+                                                  <button *ngIf="drive.status == 'completed'" type="button" class="btn btn-success" (click)="viewDrive(drive.work_log)" style="padding: 0;
+                                                  height: 30px;
+                                                  width: 100%;
+                                                  text-transform: capitalize;
+                                                  font-size: 0.9em;"><i class="material-icons" style="font-size: 1.2em;    line-height: 20px;
+                                                  margin: 0;
+                                                  margin-bottom: 2px;
+                                                  cursor: pointer;
+                                                  width: auto;
+                                                  height: auto;
+                                                  margin-right: 2px;">remove_red_eye</i> View Completed Drive</button>
+                                                 
+                                                  <br>
+                                                    <span *ngIf="drive.status == 'completed'" style="font-size: 1em;
+                                                    color: #157719;
+                                                    margin: 5px 0px;
+                                                    text-align: center;
+                                                    float: right;
+                                                    font-weight: 500;">Completed</span>
+                                                   
+                                              </div>
+                                            </div>
+                                      </div>
+                                      <div class="col-md-5">
+                                          <label style="margin: 10px 0px;font-size: 1.2em;
+                                             font-weight: 700;">View Drive</label>
+                                          <div class="row" style="height: 90%;">
+                                              <div class="col-md-12">
+                                                <ngui-map [options]="mapOptions_driveview" (mapReady$)="onMapReadyDriveView($event)" style="height: 100%;">                  
+                                                    <custom-marker *ngFor="let pos of drivePoints" [position]="pos.position"
+                                                    style="position:relative;">
+                                                    <img [src]="'../../../../assets/img/' + pos.icon" style="width: 30px;" />
+                                                    <span
+                                                        style="box-shadow: 1px 1px 2px 1px #888888;border:1px solid rgb(14, 29, 53);border-radius:8px;padding:8px 5px;width:120px;background:rgb(255, 255, 255);position:absolute;top:-40px;right:40px;">
+                                                        <span style="margin: 3px;font-weight: 600;color:#ca030d !important">{{ pos.message }}</span><br>
+                                                        <span style="margin: 3px;color: rgb(0, 147, 17);" *ngIf="pos.phone"><i class="material-icons" style="font-size: 0.8em;margin-top:10px;top:5px;                                                      margin-right: 1px;">phone</i> {{ pos.phone }}</span>
+  
+                                                    </span>
+                                                </custom-marker>
+                                                  </ngui-map>
+                                                </div>
+                                          </div>
+                                        </div>
+                                </div>
+                              
+                             
+                            </form>
+                </div>
+              </div>
+              </div>
+        </div>
+       
+        <button (click)="completeddrives.close()" class="pull-right" style="background: #c7c7c7;
+        color: #525252;
+        padding: 11px 20px;
+        font-size: 1.1em;
+        margin-right: 10px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        cursor: pointer;">Close</button>
+      </ngx-smart-modal>
+
+
+
+      <ngx-smart-modal #log_timings identifier="log_timings" class="log_timings short">
+        <h1 style="text-align: center;height: 5%;
+        margin-bottom: 20px;">Online Time Logs</h1>
+        <div style="margin-bottom: 30px;margin-top: 40px;">
+            <div *ngFor="let log of log_holder" style="display: flex;
+            background: #adadad1f;
+            padding: 20px;
+            border-radius: 13px;
+            margin: 20px 0px;
+            border: 1px solid #b5b5b5;">
+              <p style="width: 50%;
+              margin: 0;
+              color: #109800;
+              font-size: 1.1em;
+              font-weight: 600;">Online: <span style="font-weight: 400;
+    font-size: 0.9em;">{{ getFormatted2(log.online) }}</span></p>
+              <p style="width: 50%;
+              margin: 0;
+              color: #ef0000;
+              font-size: 1.1em;
+              font-weight: 600;">Offline: <span style="font-weight: 400;
+    font-size: 0.9em;">{{ getFormatted2(log.offline) }}</span></p>
+            </div>
+        </div>
+        
+         <button type="submit" class="btn btn-danger pull-right" style="margin: 0;
+         margin-right: 12px;" (click)="log_timings.close()">Dismiss</button>
+      </ngx-smart-modal>

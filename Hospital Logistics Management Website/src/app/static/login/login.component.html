@@ -1,0 +1,40 @@
+<div class="wrapper ">
+    
+      <div class="content" style="width: 30%;
+      margin: auto;
+      margin-top: 100px;">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Login</h4>
+                </div>
+                <div class="card-body">
+                  <form>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Email address</label>
+                          <input type="email" class="form-control" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+                        </div>
+                      </div> 
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Password</label>
+                          <input type="password" class="form-control" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+                        </div>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right" (click)="login()" [disabled]="!token">Login</button>
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      

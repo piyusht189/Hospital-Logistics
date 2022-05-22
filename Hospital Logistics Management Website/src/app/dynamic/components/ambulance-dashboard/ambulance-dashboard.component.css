@@ -1,0 +1,16 @@
+.mat-tab-group {
+    margin-bottom: 48px;
+  }
+  .noeffect{
+    cursor: unset !important;
+    color: #fff !important;
+  }
+  .white{
+    color: #0d629a !important;
+  }
+
+  .labelvehicle{
+    font-size: 1.1em;
+    font-weight: 500;
+    margin: 0;
+  }

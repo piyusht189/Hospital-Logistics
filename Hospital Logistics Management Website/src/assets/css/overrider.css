@@ -1,0 +1,362 @@
+[identifier="show_location"] .nsm-dialog{
+    max-width: 80% !important;
+}
+[identifier="show_location"] .nsm-body{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+[identifier="show_location"] .nsm-content{
+    border-radius: 25px;
+    padding: 30px;
+}
+
+
+
+
+
+[identifier="adddrive"] .nsm-dialog{
+    max-width: 95% !important;
+}
+[identifier="adddrive"] .nsm-body{
+    padding-right: 15px;
+    padding-left: 15px;
+    overflow-y: scroll;
+}
+[identifier="adddrive"] .nsm-content{
+    border-radius: 25px;
+    padding: 10px 0px 0px 0px;
+}
+
+[identifier="completeddrives"] .nsm-dialog{
+    max-width: 95% !important;
+}
+[identifier="completeddrives"] .nsm-body{
+    padding-right: 15px;
+    padding-left: 15px;
+    overflow-y: scroll;
+}
+[identifier="completeddrives"] .nsm-content{
+    border-radius: 25px;
+    padding: 10px 0px 0px 0px;
+}
+
+[identifier="show_vehicle"] .nsm-dialog{
+    max-width: 50% !important;
+}
+[identifier="show_vehicle"] .nsm-body{
+    padding-right: 15px;
+    padding-left: 15px;
+    overflow-y: scroll;
+}
+[identifier="show_vehicle"] .nsm-content{
+    border-radius: 25px;
+    padding: 30px;
+}
+
+[identifier="add_hospital"] .nsm-dialog{
+    max-width: 95% !important;
+}
+[identifier="add_hospital"] .nsm-body{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+[identifier="add_hospital"] .nsm-content{
+    border-radius: 25px;
+    padding: 30px;
+}
+[identifier="log_timings"] .nsm-dialog{
+    max-width: 45% !important;
+}
+[identifier="log_timings"] .nsm-body{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+[identifier="log_timings"] .nsm-content{
+    border-radius: 25px;
+    padding: 30px;
+}
+
+
+
+
+[identifier="add_city"] .nsm-dialog{
+    max-width: 40% !important;
+}
+[identifier="add_city"] .nsm-body{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+[identifier="add_city"] .nsm-content{
+    border-radius: 25px;
+    padding: 30px;
+}
+
+
+[identifier="view_requests"] .nsm-dialog{
+    max-width: 50% !important;
+}
+[identifier="view_requests"] .nsm-body{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+[identifier="view_requests"] .nsm-content{
+    border-radius: 25px;
+    padding: 30px;
+}
+
+[identifier="edit_city"] .nsm-dialog{
+    max-width: 40% !important;
+}
+[identifier="edit_city"] .nsm-body{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+[identifier="edit_city"] .nsm-content{
+    border-radius: 25px;
+    padding: 30px;
+}
+
+[identifier="confirm_delete"] .nsm-dialog{
+    max-width: 40% !important;
+}
+[identifier="confirm_delete"] .nsm-body{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+[identifier="confirm_delete"] .nsm-content{
+    border-radius: 25px;
+    padding: 30px;
+}
+
+[identifier="send_notification"] .nsm-dialog{
+    max-width: 50% !important;
+}
+[identifier="send_notification"] .nsm-body{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+[identifier="send_notification"] .nsm-content{
+    border-radius: 25px;
+    padding: 30px;
+}
+
+
+
+[identifier="profile_details"] .nsm-dialog{
+    max-width: 60% !important;
+}
+[identifier="profile_details"] .nsm-body{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+[identifier="profile_details"] .nsm-content{
+    border-radius: 25px;
+    padding: 30px;
+}
+
+[identifier="add_captain"] .nsm-dialog{
+    max-width: 40% !important;
+}
+[identifier="add_captain"] .nsm-body{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+[identifier="add_captain"] .nsm-content{
+    border-radius: 25px;
+    padding: 30px;
+}
+[identifier="edit_captain"] .nsm-dialog{
+    max-width: 40% !important;
+}
+[identifier="edit_captain"] .nsm-body{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+[identifier="edit_captain"] .nsm-content{
+    border-radius: 25px;
+    padding: 30px;
+}
+
+
+[identifier="add_dv"] .nsm-dialog{
+    max-width: 60% !important;
+}
+[identifier="add_dv"] .nsm-body{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+[identifier="add_dv"] .nsm-content{
+    border-radius: 25px;
+    padding: 30px;
+}
+[identifier="edit_dv"] .nsm-dialog{
+    max-width: 60% !important;
+}
+[identifier="edit_dv"] .nsm-body{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+[identifier="edit_dv"] .nsm-content{
+    border-radius: 25px;
+    padding: 30px;
+}
+
+
+
+
+.nsm-content{
+    height: 95%;
+    margin-top: 9px !important;
+}
+.add_hospital .nsm-content{
+    height: auto;
+}
+.edit_hospital .nsm-content{
+    height: auto;
+}
+
+
+.add_city .nsm-content{
+    height: auto;
+}
+.edit_city .nsm-content{
+    height: auto;
+}
+
+
+.nsm-dialog{
+    height: 100%
+}
+.short .nsm-dialog{
+    height: auto;
+}
+
+.pac-container{
+    z-index: 9999;
+    display: block !important;
+}
+.pac-logo:after{
+    display: none !important;
+}
+label{
+    color: #ca030d !important;
+}
+
+
+.form-check .form-check-sign .check{
+    border: 1px solid rgb(181, 181, 181) !important;
+}
+.form-check .form-check-label span{
+    position: relative !important;
+    margin-top: 1px !important;
+}
+
+.mat-tab-body-wrapper{
+    height: 100%;
+}
+
+.switch-small{
+    background: #ca030d !important;
+}
+.switch-small.checked{
+    background: #0b639a !important;
+}
+.planned .form-control{
+    background-image: linear-gradient(to top, #09aeec 1px, rgba(208, 40, 40, 0) 1px), linear-gradient(to top, #0d629a 1px, rgba(210, 210, 210, 0) 1px);
+}
+.purple .bmd-label-floating{
+    color:#0d629a !important;
+}
+.timepicker-overlay{
+    z-index: 9999 !important;
+}
+.placeholderblue::-webkit-input-placeholder { /* Edge */
+    color: #0f619a;
+  }
+  
+  .placeholderblue:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #0f619a;
+  }
+  
+  .placeholderblue::placeholder {
+    color: #0f619a;
+  }
+
+  .planned .multiselect-dropdown .dropdown-btn{
+    width: 90% !important;
+    border: none !important;
+    border-bottom: 1px solid #0f619a !important;
+    padding: 16px 0px 6px 0px !important;
+    color: #0f619a !important;
+    border-radius: 0px !important;
+  }
+  .noresult{
+    background: #fcf0ff !important;
+    text-align: center !important;
+    margin: 20px !important;
+    padding: 15px !important;
+    border-radius: 30px !important;
+  }
+
+  .customerbox{
+    border: 2px solid #1f7cb5;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .customername{
+    margin: 0px 0px 10px 0px;
+    font-size: 1.3em;
+    font-weight: 500;
+    color: #1e7cb4;
+  }
+  .customersd1{
+    margin: 0px 0px 10px 0px;
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #00a943;
+  }
+  .customersd2{
+    margin: 0px 0px 10px 0px;
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #b90000;
+  }
+  .viewbuttondiv{
+    position: absolute;
+    right: 15px;
+    top: 34px;
+  }
+  .viewbuttondiv1{
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+  }
+  .customerphone{
+      font-size: 0.8em;
+  }
+
+  .listambulancebox{
+    position: absolute;
+    width: 31%;
+    background: #fff;
+    right: 0;
+    height: 90%;
+    z-index: 999;
+    border: 2px solid #ca030f;
+    border-radius: 20px;
+    padding: 20px;
+  }
+
+  .recommended{
+    background: #1bad00;
+    border: none;
+    color: #fff;
+    padding: 2px 10px 3px 10px;
+    display: block;
+    width: fit-content;
+    margin-top: 5px;
+    border-radius: 20px;
+  }

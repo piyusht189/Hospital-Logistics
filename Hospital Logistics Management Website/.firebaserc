@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "drivecraft-labs": {
+      "hosting": {
+        "DriveCraftLabs": [
+          "drivecraft-labs"
+        ]
+      }
+    }
+  }
+}
